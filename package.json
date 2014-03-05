@@ -1,0 +1,25 @@
+{
+  "name": "words.divisionlab.com",
+  "version": "0.1.0",
+  "description": "Wordpress blog on rare and archaic words",
+  "main": "project/index.php",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-ssh": "~0.10.0",
+    "load-grunt-tasks": "~0.3.0",
+    "time-grunt": "~0.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/varinen/server.skript.io.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/varinen/server.skript.io/issues"
+  }
+}
