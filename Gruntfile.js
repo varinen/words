@@ -29,24 +29,24 @@ module.exports = function (grunt) {
                 username: '<%= secret.username %>',
                 password: '<%= secret.password %>',
                 port: 22,
-                path: '/var/www/dev.server.skript.io/current/'
+                path: '/var/www/words.divisionlab.com/current/'
             }
         },
         sshexec: {
             'make-release-dir': {
-                command: 'mkdir -m 777 -p /var/www/dev.server.skript.io/releases/' + dirname,
+                command: 'mkdir -m 777 -p /var/www/words.divisionlab.com/releases/' + dirname,
                 options: {
                     config: 'production'
                 }
             },
             'update-symlinks': {
-                command: 'rm -rf /var/www/dev.server.skript.io/current && ln -s /var/www/dev.server.skript.io/releases/' + dirname + ' /var/www/dev.server.skript.io/current',
+                command: 'rm -rf /var/www/words.divisionlab.com/current && ln -s /var/www/words.divisionlab.com/releases/' + dirname + ' /var/www/words.divisionlab.com/current',
                 options: {
                     config: 'production'
                 }
             },
             'symlink-components': {
-                command: 'ln -s /var/www/dev.server.skript.io/config/  /var/www/dev.server.skript.io/releases/' + dirname + '/config',
+                command: 'rm -rf /var/www/words.divisionlab.com/current/wp-config.php && ln -s /var/www/words.divisionlab.com/config/wp-config.php  /var/www/words.divisionlab.com/releases/' + dirname + '/wp-config.php',
                 options: {
                     config: 'production'
                 }
@@ -56,11 +56,11 @@ module.exports = function (grunt) {
         sftp: {
             deploy: {
                 files: {
-                    './': ['src/*.*']
+                    './': ['project/**',]
                 },
                 options: {
                     config: 'production',
-                    srcBasePath: 'src/',
+                    srcBasePath: 'project/',
                     createDirectories: true
                 }
             }
